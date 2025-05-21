@@ -1,0 +1,80 @@
+{
+    "version": 1,
+    "author": "Kaji",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-arduino-uno", "id": "uno", "top": -15.86, "left": 19.65, "attrs": {} },
+      {
+        "type": "wokwi-dht22",
+        "id": "dht1",
+        "top": 250.49,
+        "left": -55.45,
+        "rotate": 270,
+        "attrs": { "temperature": "33.6", "humidity": "29.5" }
+      },
+      { "type": "wokwi-potentiometer", "id": "pot1", "top": 372.51, "left": 347.43, "attrs": {} },
+      {
+        "type": "wokwi-relay-module",
+        "id": "relay1",
+        "top": -323.4,
+        "left": -169.2,
+        "rotate": 270,
+        "attrs": {}
+      },
+      {
+        "type": "wokwi-relay-module",
+        "id": "relay2",
+        "top": -323.4,
+        "left": 3.6,
+        "rotate": 270,
+        "attrs": {}
+      },
+      {
+        "type": "wokwi-relay-module",
+        "id": "relay3",
+        "top": -333,
+        "left": 176.4,
+        "rotate": 270,
+        "attrs": {}
+      },
+      {
+        "type": "wokwi-lcd2004",
+        "id": "lcd1",
+        "top": -35.39,
+        "left": 441.65,
+        "attrs": { "pins": "i2c" }
+      },
+      {
+        "type": "wokwi-photoresistor-sensor",
+        "id": "ldr1",
+        "top": 440.2,
+        "left": -145.36,
+        "attrs": {}
+      }
+    ],
+    "connections": [
+      [ "dht1:GND", "uno:GND.2", "black", [ "h0" ] ],
+      [ "dht1:SDA", "uno:2", "green", [ "h298.69", "v-350.9", "h-66.74" ] ],
+      [ "dht1:VCC", "uno:5V", "red", [ "h0" ] ],
+      [ "pot1:SIG", "uno:A1", "green", [ "v22.69", "h72.03", "v-251.51", "h-207.33" ] ],
+      [ "uno:5V", "relay1:VCC", "red", [ "v16.46", "h-230.58" ] ],
+      [ "relay1:VCC", "relay2:VCC", "red", [ "v28.52", "h227.45" ] ],
+      [ "relay2:VCC", "relay3:VCC", "red", [ "v24.2", "h291.78" ] ],
+      [ "uno:GND.2", "relay1:GND", "black", [ "v29.75", "h-265.34" ] ],
+      [ "relay1:GND", "relay2:GND", "black", [ "v44.47", "h226.76" ] ],
+      [ "relay2:GND", "relay3:GND", "black", [ "v40.15", "h292.42" ] ],
+      [ "relay1:IN", "uno:11", "green", [ "v145.5", "h225.33" ] ],
+      [ "relay2:IN", "uno:9", "green", [ "v121.24", "h43.75" ] ],
+      [ "relay3:IN", "uno:7", "green", [ "v128.27", "h-231.85" ] ],
+      [ "lcd1:GND", "relay3:GND", "black", [ "h0" ] ],
+      [ "lcd1:VCC", "relay3:VCC", "red", [ "h0" ] ],
+      [ "lcd1:SDA", "uno:A4", "green", [ "h-33.01", "v182.33", "h-144.45" ] ],
+      [ "lcd1:SCL", "uno:A5", "green", [ "h-18", "v206.6", "h-151.96", "v1.88" ] ],
+      [ "pot1:GND", "uno:GND.2", "black", [ "v15.1", "h-186.45" ] ],
+      [ "pot1:VCC", "uno:5V", "red", [ "v30.78", "h-194.26" ] ],
+      [ "ldr1:AO", "uno:A0", "green", [ "h194.69", "v-88.82" ] ],
+      [ "ldr1:VCC", "uno:5V", "red", [ "h0" ] ],
+      [ "ldr1:GND", "uno:GND.3", "black", [ "h0" ] ]
+    ],
+    "dependencies": {}
+  }
